@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical 100 Camp Registration</title>
+    <link rel="stylesheet" href="stylesNew.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">
+                <h3>PROCESSING REGISTRATION</h3>
+                <p>Your quest begins<span class="dots">...</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="success-overlay">
+        <div class="success-content">
+            <div class="success-icon">
+                <div class="checkmark">✓</div>
+            </div>
+            <div class="success-text">
+                <h3>REGISTRATION COMPLETE</h3>
+                <div class="email-notice">
+                    <p>Confirmation email sent</p>
+                    <small>Check your inbox and spam folder</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-badge">
+                <div class="badge-number">100</div>
+            </div>
+            <h1 class="main-title">ARISE CAMP 2026</h1>
+            <div class="date-banner">
+                <span>OCTOBER 19-21, 2026</span>
+            </div>
+            <p class="subtitle">REGISTRATION FORM</p>
+        </div>
+
+        <!-- Form Section -->
+        <div class="form-wrapper">
+            <form id="survivorRegistrationForm">
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">01</div>
+                        <h3>PERSONAL INFORMATION</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" id="male" name="gender" value="male" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Male</span>
+                            </label>
+                            
+                            <label class="radio-option">
+                                <input type="radio" id="female" name="gender" value="female" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Female</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address *</label>
+                        <textarea id="address" name="address" rows="3" required placeholder="E.g. 88 Cecil Avenue Castle Hill NSW 2154"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emergencyContact">Emergency Contact (Name & Phone) *</label>
+                        <input type="text" id="emergencyContact" name="emergencyContact" required placeholder="e.g., John Doe - 0412 345 678">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Age Group *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" id="adult" name="ageGroup" value="Adult" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Adult</span>
+                            </label>
+                            
+                            <label class="radio-option">
+                                <input type="radio" id="university" name="ageGroup" value="University/Concession" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Uni/Concession</span>
+                            </label>
+                            
+                            <label class="radio-option">
+                                <input type="radio" id="highSchool" name="ageGroup" value="High School" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">High School</span>
+                            </label>
+
+                            <label class="radio-option">
+                                <input type="radio" id="primarySchool" name="ageGroup" value="Primary School" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Primary School</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transport & Medical Section -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">02</div>
+                        <h3>TRANSPORT & MEDICAL</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Transport Arrangement *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" id="driving" name="transport" value="driving" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">I will be driving</span>
+                            </label>
+                            
+                            <label class="radio-option">
+                                <input type="radio" id="need-lift" name="transport" value="need-lift" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">I will need a lift</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="medicalInfo">Allergies, Medical Info, or Other Queries</label>
+                        <textarea id="medicalInfo" name="medicalInfo" rows="4" placeholder="Please list any allergies, medical conditions, dietary requirements, or other important information..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Dependents Section -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">03</div>
+                        <h3>DEPENDENTS</h3>
+                    </div>
+                    <p class="section-description">Add any family members or dependents who will be joining you at the camp.</p>
+                    
+                    <div id="dependents-container">
+                        <!-- Dependents will be added here dynamically -->
+                    </div>
+                    
+                    <button type="button" id="add-dependent" class="add-dependent-btn">
+                        + ADD DEPENDENT
+                    </button>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    COMPLETE REGISTRATION
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scriptsNew.js"></script>
+</body>
+</html>
