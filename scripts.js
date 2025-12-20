@@ -23,31 +23,31 @@ document.addEventListener("DOMContentLoaded", () => {
                       <label>Age Group *</label>
                       <div class="radio-group">
                           <label class="radio-option">
-                              <input type="radio" id="dependent-adult-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="Adult" required>
+                              <input type="radio" id="dependent-adult-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="Adult">
                               <span class="radio-custom"></span>
                               <span class="radio-label">Adult</span>
                           </label>
                           
                           <label class="radio-option">
-                              <input type="radio" id="dependent-university-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="University/Concession" required>
+                              <input type="radio" id="dependent-university-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="University/Concession">
                               <span class="radio-custom"></span>
                               <span class="radio-label">Uni/Concession</span>
                           </label>
                           
                           <label class="radio-option">
-                              <input type="radio" id="dependent-youth-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="High School" required>
+                              <input type="radio" id="dependent-youth-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="High School">
                               <span class="radio-custom"></span>
                               <span class="radio-label">High School</span>
                           </label>
                           
                           <label class="radio-option">
-                              <input type="radio" id="dependent-primary-school-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="Primary School" required>
+                              <input type="radio" id="dependent-primary-school-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="Primary School">
                               <span class="radio-custom"></span>
                               <span class="radio-label">Primary School</span>
                           </label>
                           
                           <label class="radio-option">
-                              <input type="radio" id="dependent-preschool-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="Preschool (3-5 yrs)" required>
+                              <input type="radio" id="dependent-preschool-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="Preschool (3-5 yrs)">
                               <span class="radio-custom"></span>
                               <span class="radio-label">Preschool (3-5 yrs)</span>
                           </label>
@@ -57,13 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
                       <label>Gender *</label>
                       <div class="radio-group">
                           <label class="radio-option">
-                              <input type="radio" id="dependent-male-${dependentCount}" name="dependents[${dependentCount}][gender]" value="male" required>
+                              <input type="radio" id="dependent-male-${dependentCount}" name="dependents[${dependentCount}][gender]" value="male">
                               <span class="radio-custom"></span>
                               <span class="radio-label">Male</span>
                           </label>
                           
                           <label class="radio-option">
-                              <input type="radio" id="dependent-female-${dependentCount}" name="dependents[${dependentCount}][gender]" value="female" required>
+                              <input type="radio" id="dependent-female-${dependentCount}" name="dependents[${dependentCount}][gender]" value="female">
                               <span class="radio-custom"></span>
                               <span class="radio-label">Female</span>
                           </label>
@@ -121,7 +121,36 @@ document.addEventListener("DOMContentLoaded", () => {
         loadingOverlay.classList.remove("show")
         return
       }
-  
+
+      // Validate dependents section
+      const dependentItems = document.querySelectorAll(".dependent-item")
+      if (dependentItems.length > 0) {
+        for (let i = 0; i < dependentItems.length; i++) {
+          const item = dependentItems[i]
+          const nameInput = item.querySelector(`input[name*="[name]"]`)
+          const ageGroupInput = item.querySelector(`input[name*="[ageGroup]"]:checked`)
+          const genderInput = item.querySelector(`input[name*="[gender]"]:checked`)
+          
+          if (!nameInput || !nameInput.value.trim()) {
+            alert(`Please fill in the name for Dependent ${i + 1}!`)
+            loadingOverlay.classList.remove("show")
+            return
+          }
+
+          if (!ageGroupInput) {
+            alert(`Please select an age group for Dependent ${i + 1}!`)
+            loadingOverlay.classList.remove("show")
+            return
+          }
+
+          if (!genderInput) {
+            alert(`Please select a gender for Dependent ${i + 1}!`)
+            loadingOverlay.classList.remove("show")
+            return
+          }
+        }
+      }
+
       // Collect all form data
       const formData = new FormData(form)
       const data = {
@@ -137,8 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dependents: [],
       }
   
-      // Collect dependents data
-      const dependentItems = document.querySelectorAll(".dependent-item")
+      // Collect dependents data (already validated above)
       dependentItems.forEach((item, index) => {
         const nameInput = item.querySelector(`input[name*="[name]"]`)
         const ageGroupInput = item.querySelector(`input[name*="[ageGroup]"]:checked`)
