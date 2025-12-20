@@ -47,9 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
                           </label>
                           
                           <label class="radio-option">
-                              <input type="radio" id="dependent-preschool-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="Preschool (3-5 yrs)">
+                              <input type="radio" id="dependent-preschool-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="Preschool (2-5 yrs)">
                               <span class="radio-custom"></span>
-                              <span class="radio-label">Preschool (3-5 yrs)</span>
+                              <span class="radio-label">Preschool (2-5 yrs)</span>
+                          </label>
+                          
+                          <label class="radio-option">
+                              <input type="radio" id="dependent-infant-${dependentCount}" name="dependents[${dependentCount}][ageGroup]" value="Infant">
+                              <span class="radio-custom"></span>
+                              <span class="radio-label">Infant</span>
                           </label>
                       </div>
                   </div>

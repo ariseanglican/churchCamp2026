@@ -39,9 +39,44 @@
   
   .container {
     /* Responsive width for better mobile experience */
-    max-width: min(900px, 95vw);
+    max-width: min(900px, 98vw);
     margin: 0 auto;
-    padding: clamp(20px, 5vw, 60px) clamp(15px, 3vw, 20px);
+    padding: clamp(10px, 3vw, 60px) clamp(6px, 2vw, 20px);
+  }
+
+  /* Mobile-specific adjustments */
+  @media (max-width: 600px) {
+    .container {
+      max-width: 100%;
+      padding: 10px 6px;
+    }
+
+    .header {
+      margin-bottom: 20px;
+      padding: 25px 15px;
+    }
+
+    .prices-banner {
+      padding: 18px 12px;
+      margin-bottom: 18px;
+    }
+
+    .prices-banner-small {
+      padding: 14px 10px;
+    }
+
+    .form-wrapper {
+      padding: 18px 12px;
+    }
+
+    .form-section {
+      padding: 18px 12px;
+      margin-bottom: 18px;
+    }
+
+    .dependent-item {
+      padding: 15px 10px;
+    }
   }
   
   /* Header Styles */
@@ -201,6 +236,53 @@
     color: #0a0a0a;
     text-transform: uppercase;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .prices-note {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(12px, 2vw, 14px);
+    font-weight: 600;
+    color: var(--color-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+  }
+
+  /* Smaller Standard Prices Banner */
+  .prices-banner-small {
+    padding: clamp(18px, 4vw, 30px);
+    margin-bottom: clamp(20px, 3vw, 30px);
+    border-width: 2px;
+  }
+
+  .prices-banner-small .prices-header {
+    margin-bottom: clamp(15px, 3vw, 20px);
+    padding-bottom: clamp(10px, 2vw, 15px);
+    border-bottom-width: 2px;
+  }
+
+  .prices-banner-small .prices-header h2 {
+    font-size: clamp(18px, 4vw, 28px);
+    letter-spacing: clamp(1px, 0.4vw, 3px);
+    color: #4a4a4a;
+  }
+
+  .prices-banner-small .prices-grid {
+    gap: clamp(10px, 2vw, 15px);
+  }
+
+  .prices-banner-small .price-item {
+    padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 18px);
+    border-width: 1px;
+  }
+
+  .prices-banner-small .price-label {
+    font-size: clamp(10px, 1.8vw, 12px);
+  }
+
+  .prices-banner-small .price-value {
+    font-size: clamp(16px, 3vw, 22px);
+    color: #4a4a4a;
   }
   
   .prices-grid {
